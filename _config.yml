@@ -42,7 +42,8 @@ timezone:      null
 title: Jekyll Theme
 description: Just another Jekyll theme design and code by zhanxin.info.
 keywords: Jekyll Theme
-url: http://mr-rxz.github.io/
+#url: http://mr-rxz.github.io
+url: http://localhost:4000
 feed: /atom.xml
 favicon: http://jekyllrb.com/favicon.png
 
