@@ -110,9 +110,9 @@ googleAnaly:
 
 #comment config
 disqus:
-  config: false
+  config: true
   id: mr-rxz-github-io
 
 duoshuo:
-  config: true
+  config: false
   id: rxz
