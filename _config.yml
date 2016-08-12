@@ -39,9 +39,9 @@ timezone:      null
 
 
 #Site config
-title: Jekyll Theme
-description: Just another Jekyll theme design and code by zhanxin.info.
-keywords: Jekyll Theme
+title: Lambda's blog
+description: This is lambda's personal blog.
+keywords: lambda
 #url: http://mr-rxz.github.io
 url: https://mr-rxz.github.io
 feed: /atom.xml
@@ -64,7 +64,7 @@ nav:
 author:
     name: Lambda
     email: misterrxzh@gmail.com
-    imageLink: http://tp2.sinaimg.cn/1832671293/180/40020872447/1
+    imageLink: http://bbs.pku.edu.cn/attach/avatar/X/xzhren.jpg
     simpleIntro: 我是「展新展新」，一个矛盾体的化身，在你的掌心里。
     detailIntro:
       <p>Jekyll 是一个简洁的、特别针对博客平台的 静态网站 生成器。它使用一个模板目录作为网站布局的基础框架，并在其上运行 Textile 、 Markdown 或 Liquid 标记语言的转换器，最终生成一个完整的静态Web站点，可以被放置在Apache或者你喜欢的其他任何Web服务器上。它同时也是 GitHub Pages 、一个由 GitHub 提供的用于托管项目主页或博客的服务，在后台所运行的引擎。</p>
@@ -75,25 +75,21 @@ follow:
   - class: icon-rss
     url: /atom.xml
   - class: icon-weibo
-    url: http://weibo.com/pizn
+    url: http://weibo.com/u/3224522765?refer_flag=1005055014_&is_hot=1
   - class: icon-renren
-    url: http://renren.com
+    url: https://cn.linkedin.com/in/%E6%98%9F%E5%BD%B0-%E4%BB%BB-85a9a7b6
   - class: icon-github-alt
-    url: http://github.com/pizn
+    url: https://github.com/Mr-rxz
   - class: icon-twitter
-    url: http://twitter.com/piznlin
+    url: http://twitter.com/
   - class: icon-google-plus
     url: http://google.com
 
 #Links
 customLinks:
   - item:
-    - text: 掌心
-      url: http://www.zhanxin.info
-    - text: Jekyll
-      url: http://jekyllrb.com
-    - text: Jekyll Theme
-      url: http://www.zhanxin.info/themes.html
+    - text: Google
+      url: http://google.com
     message: Friends
   - item:
     - text: Font Awesome
@@ -102,7 +98,11 @@ customLinks:
       url: http://www.google.com/fonts/
     - text: jQuery
       url: http://jquery.com/
-    message: 其他相关链接
+    - text: Jekyll
+      url: http://jekyllrb.com
+    - text: Jekyll Theme
+      url: http://www.zhanxin.info/themes.html
+    message: Others
 
 #googleAnaly, your id link UA-12345678-X
 googleAnaly:
@@ -116,4 +116,4 @@ disqus:
 
 duoshuo:
   config: true
-  id: rxz
+  id: lambda
