@@ -2,7 +2,7 @@
 layout: post
 title:  "Introduction of lambda!"
 date:   2016-08-09 23:34:41
-category: jekyll
+category: balabala
 ---
 
 hello everyone, I'm lambda, my realname is 任星彰 (this is for testing chinese).
