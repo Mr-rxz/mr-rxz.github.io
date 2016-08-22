@@ -88,14 +88,14 @@ from time import time
 
 |**语法**|**操作**|**说明**|
 |-------|:-----:|-------:|
-| set(list1)  | set(list2) | union | 包含 list1 和 list2 所有数据的新集合|
+| set(list1) &#124; set(list2) | union | 包含 list1 和 list2 所有数据的新集合|
 | set(list1) & set(list2) | intersection | 包含 list1 和 list2 中共同元素的新集合 |
 | set(list1) - set(list2) | difference | 在 list1 中出现但不在 list2 中出现的元素的集合 |
 
 ## 对循环的优化
 对循环的优化所遵循的原则是尽量减少循环过程中的计算量，有多重循环的尽量将内层的计算提到上一层。 下面通过实例来对比循环优化后所带来的性能的提高。程序清单 4 中，如果不进行循环优化，其大概的运行时间约为 132.375。
 
-** 清单 4. 为进行循环优化前 **
+**清单 4. 为进行循环优化前**
 
 ```
  from time import time 
@@ -243,16 +243,23 @@ for i in range (1000000):
 ```
 
 > 2 - 在循环的时候使用 xrange 而不是 range；使用 xrange 可以节省大量的系统内存，因为 xrange() 在序列中每次调用只产生一个整数元素。而 range() 將直接返回完整的元素列表，用于循环时会有不必要的开销。在 python3 中 xrange 不再存在，里面 range 提供一个可以遍历任意长度的范围的 iterator。
-> 3- 使用局部变量，避免"global" 关键字。python 访问局部变量会比全局变量要快得多，因	此可以利用这一特性提升性能。
+
+> 3- 使用局部变量，避免"global" 关键字。python 访问局部变量会比全局变量要快得多，因此可以利用这一特性提升性能。
+
 > 4- if done is not None 比语句 if done != None 更快，读者可以自行验证；
+
 > 5 - 在耗时较多的循环中，可以把函数的调用改为内联的方式；
+
 > 6 - 使用级联比较 "x < y < z" 而不是 "x < y and y < z"；
+
 > 7 - while 1 要比 while True 更快（当然后者的可读性更好）；
+
 > 8 - build in 函数通常较快，add(a,b) 要优于 a+b。
 
 # 2 定位程序性能瓶颈
 对代码优化的前提是需要了解性能瓶颈在什么地方，程序运行的主要时间是消耗在哪里，对于比较复杂的代码可以借助一些工具来定位，python 内置了丰富的性能分析工具，如 profile,cProfile 与 hotshot 等。其中 Profiler 是 python 自带的一组程序，能够描述程序运行时候的性能，并提供各种统计帮助用户定位程序的性能瓶颈。Python 标准模块提供三种 profilers:cProfile,profile 以及 hotshot。
 profile 的使用非常简单，只需要在使用之前进行 import 即可。具体实例如下：
+
 **清单 8. 使用 profile 进行性能分析**
 
 ``` 
@@ -274,11 +281,17 @@ import profile
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/2730002-eaa35ccc8cd0f94b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 其中输出每列的具体解释如下：
+
 - ncalls：表示函数调用的次数；
+
 - tottime：表示指定函数的总的运行时间，除掉函数中调用子函数的运行时间；
+
 - percall：（第一个 percall）等于 tottime/ncalls；
+
 - cumtime：表示该函数及其所有子函数的调用运行的时间，即函数开始调用到返回的时间；
+
 - percall：（第二个 percall）即函数运行一次的平均时间，等于 cumtime/ncalls；
+
 - filename:lineno(function)：每个函数调用的具体信息；
 
 如果需要将输出以日志的形式保存，只需要在调用的时候加入另外一个参数。如 profile.run("profileTest()","testprof")。
@@ -331,7 +344,9 @@ PyPy 表示 "用 Python 实现的 Python"，但实际上它是使用一个称为
 ## Cython
 Cython 是用 python 实现的一种语言，可以用来写 python 扩展，用它写出来的库都可以通过 import 来载入，性能上比 python 的快。cython 里可以载入 python 扩展 ( 比如 import math)，也可以载入 c 的库的头文件 ( 比如 :cdef extern from "math.h")，另外也可以用它来写 python 代码。将关键部分重写成 C 扩展模块
 Linux Cpython 的安装可以参考文档：[http://docs.cython.org/src/quickstart/install.html](http://docs.cython.org/src/quickstart/install.html)
-Cython 代码与 python 不同，必须先编译，编译一般需要经过两个阶段，将 pyx 文件编译为 .c 文件，再将 .c 文件编译为 .so 文件。编译有多种方法：
+Cython 代码与 python 不同，必须先编译，编译一般需要经过两个阶段，将 pyx 文件编译为 .c 文件，再将 .c 文件编译为 .so 文件。
+
+编译有多种方法：
  1.  通过命令行编译
  2.  使用 distutils 编译
 
@@ -392,19 +407,30 @@ Cython 代码与 python 不同，必须先编译，编译一般需要经过两�
 本文初步探讨了 python 常见的性能优化技巧以及如何借助工具来定位和分析程序的性能瓶颈，并提供了相关可以进行性能优化的工具或语言，希望能够更相关人员一些参考。
 
 # 参考资料
-** 学习 **
+**学习**
+
 - 参考 [Cython 官网](http://www.cython.org/)，了解更多关于 Cython 的信息。
+
 - 参考 [Pypy 官网](http://www.pypy.org/)，了解更多关于 pypy 的知识。
+
 - 查看文章"[可爱的 Python: 用 Psyco 让 Python 运行得像 C 一样快](http://www.ibm.com/developerworks/cn/linux/sdk/python/charm-28/)"，了解如何使用 Psyco 提高效率。
+
 - 参考 [Python 官网](http://www.python.org/)，了解更多 Python 最新的动态。
+
 - 获取 [visualpytune](http://code.google.com/p/visualpytune/)进行试用。
+
 - 了解更多关于 [Gprof2Dot](http://code.google.com/p/jrfonseca/wiki/Gprof2Dot)的信息。
+
 - 在 [developerWorks Linux 专区](http://www.ibm.com/developerworks/cn/linux/) 寻找为 Linux 开发人员（包括 [Linux 新手入门](http://www.ibm.com/developerworks/cn/linux/newto/)）准备的更多参考资料，查阅我们 [最受欢迎的文章和教程](http://www.ibm.com/developerworks/cn/linux/best2009/index.html)。
+
 - 在 developerWorks 上查阅所有 [Linux 技巧](http://www.ibm.com/developerworks/cn/views/linux/libraryview.jsp?search_by=Linux+%E6%8A%80%E5%B7%A7) 和 [Linux 教程](http://www.ibm.com/developerworks/cn/views/linux/libraryview.jsp?type_by=%E6%95%99%E7%A8%8B)。
+
 随时关注 developerWorks [技术活动](http://www.ibm.com/developerworks/cn/offers/techbriefings/)和[网络广播](http://www.ibm.com/developerworks/cn/swi/)。
 
-** 讨论 **
+**讨论**
+
 - 加入 [developerWorks 中文社区](http://www.ibm.com/developerworks/cn/community/)，developerWorks 社区是一个面向全球 IT 专业人员，可以提供博客、书签、wiki、群组、联系、共享和协作等社区功能的专业社交网络社区。
+
 - 加入 [IBM 软件下载与技术交流群组](https://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/communityview?communityUuid=38997896-bb16-451a-aa97-189a27a3cd5a/?lang=zh)，参与在线交流。
 
 如果有相关问题，联系邮箱：misterrxzh@gmail.com，或直接[联系我][联系我]留言
