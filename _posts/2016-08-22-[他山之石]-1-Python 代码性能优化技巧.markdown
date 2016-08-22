@@ -44,6 +44,7 @@ Python 字典中使用了 hash table，因此查找操作的复杂度为 O(1)，
 - 集合 (set) 与列表 (list)
 
 set 的 union， intersection，difference 操作要比 list 的迭代要快。因此如果涉及到求 list 交集，并集或者差的问题可以转换为 set 来操作。
+
 **清单 2. 求 list 的交集**
 
 ```
@@ -381,6 +382,7 @@ Cython 代码与 python 不同，必须先编译，编译一般需要经过两�
 ```
 
 **清单 10. Python 测试代码**
+
 从上述对比可以看到使用 Cython 的速度提高了将近 100 多倍。
 
 ```
