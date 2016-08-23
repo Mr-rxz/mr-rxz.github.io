@@ -299,8 +299,9 @@ category:  "他山之石"
 ![](http://upload-images.jianshu.io/upload_images/2730002-181d031f41749e8e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-PPT下载地址：
+PPT下载地址：[https://mr-rxz.github.io/download/Deep_Learning_Tutorial.pdf][pdflink]
 
 如果有相关问题，联系邮箱：misterrxzh@gmail.com，或直接[联系我][联系我]留言
 
 [联系我]:  https://mr-rxz.github.io/contact.html
+[pdflink]: https://mr-rxz.github.io/download/Deep_Learning_Tutorial.pdf
