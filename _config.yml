@@ -67,10 +67,12 @@ author:
     imageLink: http://bbs.pku.edu.cn/attach/avatar/X/xzhren.jpg
     simpleIntro: PKUer, Dreamer, HITer
     detailIntro:
-      <p>目前的任务：</p>
-      <p>1.深度学习</p>
-      <p>2.DEAP Python源码解读</p>
-      <p>3.Spark MLlib Python源码解读</p>
+      <p>[他山之石]：收集网络优秀的文章进行整理展示</p>
+      <p>[深度学习]：对深度学习进行研究和总结</p>
+      <p>[源码解读]：解读优秀的开源代码和算法</p>
+      <p>[所见所闻]：在学习和工作中的积累和总结</p>
+      <p>[倚天屠龙]：原创编写的便捷算法或工具</p>
+      <p>[balabala]：文艺创作文学创作艺术作品</p>
 
 #Follow me, you can choose your icon by http://fortawesome.github.io/Font-Awesome/icons/#brand
 follow:
